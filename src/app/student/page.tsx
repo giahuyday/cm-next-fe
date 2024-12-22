@@ -1,3 +1,6 @@
+import Link from "next/link";
+import path from "path";
+
 export default function student() {
     const data = [
         {
@@ -57,8 +60,7 @@ export default function student() {
     ];
     return (
         <>
-            {/* <div className="h-[100vh]"> */}
-            <div className="h-[100vh] flex justify-center items-center">
+            <div className="h-[100vh] flex justify-center items-center z-1">
                 <table className="border-collapse border border-gray-300">
                     <thead>
                         <tr className="bg-black text-white">
@@ -79,22 +81,23 @@ export default function student() {
                                 <td className="border border-gray-300 px-4 py-2">{student.classId}</td>
                                 <td className="border border-gray-300 px-4 py-2">class ne</td>
                                 <td className="border border-gray-300 px-4 py-2">
-                                    <button className="p-2 rounded bg-blue-600 hover:bg-blue-800">View Detail</button>
-                                </td>
-                                <td className="border border-gray-300 px-4 py-2">
-                                    <button className="px-[1rem] py-2 rounded bg-yellow-500 hover:bg-yellow-600">
-                                        Edit
+                                    <button className="p-2 rounded bg-blue-600 hover:bg-blue-800">
+                                        <Link href={`/student/${student.id}`} className="">
+                                            View Detail
+                                        </Link>
                                     </button>
                                 </td>
                                 <td className="border border-gray-300 px-4 py-2">
-                                    <button className="p-2 rounded bg-red-500 hover:bg-red-600">Delete</button>
+                                    <button className="px-[1rem] py-2 rounded btn-warning">Edit</button>
+                                </td>
+                                <td className="border border-gray-300 px-4 py-2">
+                                    <button className="p-2 btn-danger">Delete</button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-            {/* </div> */}
         </>
     );
 }
