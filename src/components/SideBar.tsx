@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export default function Sidebar() {
     const [openClass, setOpenClass] = useState(false);
@@ -32,10 +33,10 @@ export default function Sidebar() {
                     {openClass && (
                         <ul className="grid gap-1 mt-1 ml-4 p-2">
                             <li className="hover:bg-blue-900 w-full p-2">
-                                <a href="#">+ Create new class</a>
+                                <a href="#">+ Create class</a>
                             </li>
                             <li className="hover:bg-blue-900 w-full p-2">
-                                <a href="#">+ View class list</a>
+                                <a href="/class">+ View class list</a>
                             </li>
                             <li className="hover:bg-blue-900 w-full p-2">
                                 <a href="#">+ Update class</a>
@@ -64,10 +65,10 @@ export default function Sidebar() {
                     {openStudent && (
                         <ul className="grid gap-1 mt-1 ml-4">
                             <li className="hover:bg-blue-900 w-full p-2">
-                                <a href="#">+ Create new student</a>
+                                <a href="/student/create">+ Create student</a>
                             </li>
                             <li className="hover:bg-blue-900 w-full p-2">
-                                <a href="#">+ View student list</a>
+                                <a href="/student">+ View student list</a>
                             </li>
                             <li className="hover:bg-blue-900 w-full p-2">
                                 <a href="#">+ Update student</a>

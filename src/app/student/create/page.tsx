@@ -18,18 +18,8 @@ export default function createStudentPage() {
     return (
         <>
             <div className="w-full h-[100vh] flex justify-center items-center">
-                <div className="w-1/2 flex justify-center">
-                    <Image
-                        className="dark:invert flex justify-center"
-                        src="/next.svg"
-                        alt="Next.js logo"
-                        width={180}
-                        height={38}
-                        priority
-                    />
-                </div>
-                <div className="w-1/2 flex justify-start">
-                    <form className="grid grid-rows-1 gap-3 bg-slate-600 rounded p-10">
+                <div className="justify-center">
+                    <form className="grid grid-rows-1 gap-3 border backdrop:blur-xl p-20 rounded">
                         <h1 className="text-2xl">Create new student</h1>
 
                         <div className="grid">

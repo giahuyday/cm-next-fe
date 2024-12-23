@@ -32,11 +32,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background-lg`}>
-                <header className="h-[50px] w-full backdrop-blur-sm border-[1px] flex items-center justify-between px-4 py-2 text-white">
+                <header className="h-[50px] w-full backdrop-blur-sm border-b-[1px] flex items-center justify-between px-4 py-2 text-white">
                     <Header />
                 </header>
                 <div id="side-bar" className="grid grid-cols-9">
-                    <div className="col-span-2 h-full backdrop-blur-sm border-[1px] border-t-0">
+                    <div className="col-span-2 h-full backdrop-blur-sm border-r-[1px]">
                         <Sidebar />
                     </div>
                     <div className="col-span-7 justify-items-center backdrop-blur-sm">{children}</div>

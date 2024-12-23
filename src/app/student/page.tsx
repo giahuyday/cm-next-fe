@@ -60,8 +60,8 @@ export default function student() {
     ];
     return (
         <>
-            <div className="h-[100vh] flex justify-center items-center z-1">
-                <table className="border-collapse border border-gray-300">
+            <div className="h-[100vh] w-full z-1 grid grid-cols-7 grid-rows-11">
+                <table className="table-fixed col-span-7 row-span-10 border-gray-300">
                     <thead>
                         <tr className="bg-black text-white">
                             <th className="border border-gray-300 px-4 py-2 text-left">ID</th>
@@ -80,23 +80,25 @@ export default function student() {
                                 <td className="border border-gray-300 px-4 py-2">{student.name}</td>
                                 <td className="border border-gray-300 px-4 py-2">{student.classId}</td>
                                 <td className="border border-gray-300 px-4 py-2">class ne</td>
-                                <td className="border border-gray-300 px-4 py-2">
+                                <td className="w-[10rem] border border-gray-300 px-4 py-2">
                                     <button className="p-2 rounded bg-blue-600 hover:bg-blue-800">
                                         <Link href={`/student/${student.id}`} className="">
                                             View Detail
                                         </Link>
                                     </button>
                                 </td>
-                                <td className="border border-gray-300 px-4 py-2">
+                                <td className="w-[5rem] border border-gray-300 px-4 py-2">
                                     <button className="px-[1rem] py-2 rounded btn-warning">Edit</button>
                                 </td>
-                                <td className="border border-gray-300 px-4 py-2">
+                                <td className="w-[5rem] border border-gray-300 px-4 py-2">
                                     <button className="p-2 btn-danger">Delete</button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+
+                <div className="w-full flex justify-center items-center row-span-1 col-span-7">Pagination</div>
             </div>
         </>
     );
