@@ -1,10 +1,9 @@
 import Image from "next/image";
 import axios from "axios";
 
-interface Student {
+interface Course {
     id: number;
     name: string;
-    classId: number;
 }
 
 export const revalidate = 10;
@@ -14,15 +13,15 @@ export const dynamicParams = true; // or false, to 404 on unknown paths
 export async function generateStaticParams() {
     const response = await axios({
         method: "get",
-        url: `${process.env.NEXT_PUBLIC_API_URL}/student/api/get_students`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/class/api/get_courses`,
         headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_PERM}`,
         },
     });
-    const students: Student[] = response.data;
+    const courses: Course[] = response.data;
 
-    return students.map((student) => ({
-        id: String(student.id),
+    return courses.map((course) => ({
+        id: String(course.id),
     }));
 }
 
@@ -31,13 +30,13 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
     const response = await axios({
         method: "get",
-        url: `${process.env.NEXT_PUBLIC_API_URL}/student/api/get_student/${id}`,
+        url: `${process.env.NEXT_PUBLIC_API_URL}/class/api/get_course/${id}`,
         headers: {
             Authorization: `Bearer ${process.env.NEXT_PUBLIC_PERM}`,
         },
     });
 
-    const student: Student = response.data;
+    const course: Course = response.data[0];
 
     return (
         <div className="w-full h-[100vh] flex items-center justify-center">
@@ -64,53 +63,29 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                 </div>
                 <div id="detail" className="w-1/2 border-l-4 border-l-white col-span-4">
                     <form className="grid grid-rows-1 gap-3 rounded p-10">
-                        <h1 className="text-2xl uppercase">create new student</h1>
+                        <h1 className="text-2xl uppercase">create new course</h1>
 
                         <div className="grid">
-                            <label htmlFor="id">Student ID</label>
+                            <label htmlFor="id">Course ID</label>
                             <input
                                 readOnly
                                 className="p-2 rounded w-1/2"
                                 type="text"
                                 id="id"
-                                placeholder="Fill student name"
-                                value={student?.id}
+                                placeholder="Fill course name"
+                                value={course?.id}
                             />
                         </div>
 
                         <div className="grid">
-                            <label htmlFor="name">Student name</label>
+                            <label htmlFor="name">Course name</label>
                             <input
                                 readOnly
                                 className="p-2 rounded w-1/2"
                                 type="text"
                                 id="name"
-                                placeholder="Fill student name"
-                                value={student?.name}
-                            />
-                        </div>
-
-                        <div className="grid">
-                            <label htmlFor="class">Student class</label>
-                            <input
-                                readOnly
-                                className="p-2 rounded w-1/2"
-                                type="text"
-                                id="class"
-                                placeholder="Fill student name"
-                                value={student?.classId}
-                            />
-                        </div>
-
-                        <div className="grid">
-                            <label htmlFor="classname">Class name</label>
-                            <input
-                                readOnly
-                                className="p-2 rounded w-1/2"
-                                type="text"
-                                id="classname"
-                                placeholder="Fill student name"
-                                value="hello"
+                                placeholder="Fill course name"
+                                value={course?.name}
                             />
                         </div>
                     </form>
