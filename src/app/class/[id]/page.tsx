@@ -68,7 +68,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                             <label htmlFor="id">Course ID</label>
                             <input
                                 readOnly
-                                className="p-2 rounded w-1/2"
+                                className="p-2 rounded w-1/2 min-w-fit"
                                 type="text"
                                 id="id"
                                 placeholder="Fill course name"
@@ -80,7 +80,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                             <label htmlFor="name">Course name</label>
                             <input
                                 readOnly
-                                className="p-2 rounded w-1/2"
+                                className="p-2 rounded w-1/2 min-w-fit"
                                 type="text"
                                 id="name"
                                 placeholder="Fill course name"

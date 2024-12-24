@@ -69,7 +69,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                             <label htmlFor="id">Student ID</label>
                             <input
                                 readOnly
-                                className="p-2 rounded w-1/2"
+                                className="p-2 rounded w-1/2 min-w-fit"
                                 type="text"
                                 id="id"
                                 placeholder="Fill student name"
@@ -81,7 +81,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                             <label htmlFor="name">Student name</label>
                             <input
                                 readOnly
-                                className="p-2 rounded w-1/2"
+                                className="p-2 rounded w-1/2 min-w-fit"
                                 type="text"
                                 id="name"
                                 placeholder="Fill student name"
@@ -93,7 +93,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                             <label htmlFor="class">Student class</label>
                             <input
                                 readOnly
-                                className="p-2 rounded w-1/2"
+                                className="p-2 rounded w-1/2 min-w-fit"
                                 type="text"
                                 id="class"
                                 placeholder="Fill student name"
@@ -105,7 +105,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                             <label htmlFor="classname">Class name</label>
                             <input
                                 readOnly
-                                className="p-2 rounded w-1/2"
+                                className="p-2 rounded w-1/2 min-w-fit"
                                 type="text"
                                 id="classname"
                                 placeholder="Fill student name"

@@ -35,11 +35,11 @@ export default function RootLayout({
                 <header className="h-[50px] w-full backdrop-blur-sm border-b-[1px] flex items-center justify-between px-4 py-2 text-white">
                     <Header />
                 </header>
-                <div id="side-bar" className="grid grid-cols-9">
-                    <div className="col-span-2 h-full backdrop-blur-sm border-r-[1px]">
+                <div id="side-bar" className="md:grid grid-cols-9">
+                    <div className="md:grid md:col-span-2 xs:hidden h-full backdrop-blur-sm border-r-[1px]">
                         <Sidebar />
                     </div>
-                    <div className="col-span-7 justify-items-center backdrop-blur-sm">{children}</div>
+                    <div className="md:col-span-7 sm:col-span-9 justify-items-center backdrop-blur-sm">{children}</div>
                 </div>
             </body>
         </html>

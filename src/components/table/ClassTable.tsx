@@ -12,7 +12,7 @@ interface Props {
 
 export default function Table({ courses }: Props) {
     return (
-        <table className={`table-fixed col-span-7 border-gray-300 row-span-${courses.length + 1}`}>
+        <table className={`w-full table-fixed col-span-7 border-gray-300 row-span-${courses.length + 1}`}>
             <thead>
                 <tr className="bg-black text-white">
                     <th className="border border-gray-300 px-4 py-2 text-left">Class ID</th>

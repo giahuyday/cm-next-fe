@@ -22,11 +22,13 @@ export default async function student() {
 
     return (
         <>
-            <div className={`h-[100vh] w-full z-1 grid grid-cols-7 ${students.length + 1}`}>
-                <div id="search" className="w-full row-span-1 col-span-7 flex justify-evenly items-center">
+            <div className={`h-[100vh] w-full z-1 grid grid-cols-7 grid-rows-${students.length + 1}`}>
+                <div id="search" className="w-full row-span-1 col-span-7 md:flex justify-evenly items-center xs:hidden">
                     <SearchBar></SearchBar>
                 </div>
-                <Table students={students} />
+                <div className="mt-[10px] ml-[10px] mb-[10px] mr-[10px] col-span-7">
+                    <Table students={students} />
+                </div>
 
                 <div className="w-full flex justify-center items-center row-span-1 col-span-7">Pagination</div>
             </div>
