@@ -33,7 +33,7 @@ export default function Sidebar() {
                     {openClass && (
                         <ul className="grid gap-1 mt-1 ml-4 p-2">
                             <li className="hover:bg-blue-900 w-full p-2">
-                                <Link href="#">+ Create class</Link>
+                                <Link href="/class/create">+ Create class</Link>
                             </li>
                             <li className="hover:bg-blue-900 w-full p-2">
                                 <Link href="/class">+ View class list</Link>

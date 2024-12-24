@@ -8,7 +8,6 @@ interface Student {
 }
 
 export const revalidate = 10;
-export const fallback = "blocking";
 export const dynamicParams = true; // or false, to 404 on unknown paths
 
 export async function generateStaticParams() {

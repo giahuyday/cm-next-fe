@@ -1,5 +1,7 @@
 import axios from "axios";
 import Table from "@/components/table/StudentTable";
+import React from "react";
+import SearchBar from "@/components/search/StudentSearchBar";
 
 type Student = {
     id: number;
@@ -20,7 +22,10 @@ export default async function student() {
 
     return (
         <>
-            <div className={`h-[100vh] w-full z-1 grid grid-cols-7 ${students.length}`}>
+            <div className={`h-[100vh] w-full z-1 grid grid-cols-7 ${students.length + 1}`}>
+                <div id="search" className="w-full row-span-1 col-span-7 flex justify-evenly items-center">
+                    <SearchBar></SearchBar>
+                </div>
                 <Table students={students} />
 
                 <div className="w-full flex justify-center items-center row-span-1 col-span-7">Pagination</div>
