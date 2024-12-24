@@ -21,8 +21,8 @@ export default function Table({ students }: Props) {
                     <th className="border border-gray-300 px-4 py-2 text-left">Class ID</th>
                     <th className="border border-gray-300 px-4 py-2 text-left">Class Name</th>
                     <th className="border border-gray-300 px-4 py-2 text-left">View</th>
-                    <th className="border border-gray-300 px-4 py-2 text-left">Edit</th>
-                    <th className="border border-gray-300 px-4 py-2 text-left">Delete</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left hidden sm:table-cell">Edit</th>
+                    <th className="border border-gray-300 px-4 py-2 text-left hidden sm:table-cell">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,10 +39,10 @@ export default function Table({ students }: Props) {
                                 </Link>
                             </button>
                         </td>
-                        <td className="w-[5rem] border border-gray-300 px-4 py-2">
+                        <td className="w-[5rem] border border-gray-300 px-4 py-2 hidden sm:table-cell">
                             <button className="px-[1rem] py-2 rounded btn-warning">Edit</button>
                         </td>
-                        <td className="w-[5rem] border border-gray-300 px-4 py-2">
+                        <td className="w-[5rem] border border-gray-300 px-4 py-2 hidden sm:table-cell">
                             <button className="p-2 btn-danger">Delete</button>
                         </td>
                     </tr>
