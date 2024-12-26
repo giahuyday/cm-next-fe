@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     });
 
     const student: Student = response.data;
-
+    console.log(student);
     return (
         <div className="w-full h-[100vh] flex items-center justify-center">
             <div id="avatar" className="flex items-center w-full h-full rounded text-white">

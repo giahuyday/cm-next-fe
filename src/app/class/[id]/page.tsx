@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         },
     });
 
-    const course: Course = response.data[0];
+    const course: Course = response.data;
 
     return (
         <div className="w-full h-[100vh] flex items-center justify-center">
@@ -62,7 +62,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                 </div>
                 <div id="detail" className="w-1/2 border-l-4 border-l-white col-span-4">
                     <form className="grid grid-rows-1 gap-3 rounded p-10">
-                        <h1 className="text-2xl uppercase">create new course</h1>
+                        <h1 className="text-2xl uppercase">Course Detail</h1>
 
                         <div className="grid">
                             <label htmlFor="id">Course ID</label>

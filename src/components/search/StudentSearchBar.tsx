@@ -1,11 +1,13 @@
 "use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faL, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useState } from "react";
 import { Student } from "@/type/type";
 import Link from "next/link";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function SearchBar() {
     const [studentName, setStudentName] = useState<string>("");
@@ -48,7 +50,7 @@ export default function SearchBar() {
                     "Content-Type": "application/json", // Xác định kiểu dữ liệu JSON
                 },
             });
-            
+
             setSearchedStudent(response?.data);
             if (searchedStudent.length != 0) {
                 setSearchState(true);
@@ -56,6 +58,7 @@ export default function SearchBar() {
                 setSearchState(false);
             }
         } catch (error: any) {
+            toast.error(error.response.data.devMessage);
             console.error("Error:", error.response?.data?.devMessage || error.message);
         }
     };
@@ -85,7 +88,7 @@ export default function SearchBar() {
             <div className="flex border group rounded max-h-[4rem] p-4 relative">
                 <input
                     type="text"
-                    className="bg-transparent flex-grow"
+                    className="bg-transparent flex-grow text-white"
                     placeholder="Fill student name to search"
                     value={studentName}
                     onChange={(e) => setStudentName(e.target.value)}
@@ -108,6 +111,18 @@ export default function SearchBar() {
                     </div>
                 ) : null}
             </div>
+
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 }

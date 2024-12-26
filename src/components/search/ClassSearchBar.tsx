@@ -6,6 +6,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Class } from "@/type/type";
 import Link from "next/link";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function SearchBar() {
     const [courseName, setCourseName] = useState<string>("");
@@ -28,6 +30,7 @@ export default function SearchBar() {
                 setSearchState(true);
             }
         } catch (error: any) {
+            toast.error(error.response.data.devMessage);
             console.error("Error:", error.response?.data?.devMessage || error.message);
         }
     };
@@ -46,7 +49,7 @@ export default function SearchBar() {
             <div className="flex border group rounded max-h-[4rem] p-2 relative">
                 <input
                     type="text"
-                    className="bg-transparent flex-grow"
+                    className="bg-transparent flex-grow text-white"
                     placeholder="Fill course name to search"
                     value={courseName}
                     onChange={(e) => setCourseName(e.target.value)}
@@ -69,6 +72,18 @@ export default function SearchBar() {
                     </div>
                 ) : null}
             </div>
+
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 }
