@@ -1,9 +1,10 @@
 "use client";
 import axios from "axios";
-import { useRef, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { useRef } from "react";
+import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import "react-toastify/dist/ReactToastify.css";
+import ToastNotification from "@/components/toast/toastify";
 
 export default function CreateCoursePage() {
     const router = useRouter();
@@ -61,17 +62,7 @@ export default function CreateCoursePage() {
                     </form>
                 </div>
             </div>
-            <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+            <ToastNotification />
         </>
     );
 }

@@ -1,22 +1,18 @@
 import axios from "axios";
 import Table from "@/components/table/ClassTable";
 import SearchBar from "@/components/search/ClassSearchBar";
-
-type Course = {
-    id: number;
-    name: string;
-};
+import { Class } from "@/type/type";
 
 export default async function course() {
     const response = await axios({
         method: "get",
         url: `${process.env.NEXT_PUBLIC_API_URL}/class/api/get_courses`,
         headers: {
-            Authorization: "Baerer admin",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_PERM}`,
         },
     });
 
-    const courses: Course[] = response.data;
+    const courses: Class[] = response.data;
 
     return (
         <>

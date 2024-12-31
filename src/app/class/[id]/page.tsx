@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         },
     });
 
-    const course: Course = response.data[0];
+    const course: Course = response.data;
 
     return (
         <div className="w-full h-[100vh] flex items-center justify-center">

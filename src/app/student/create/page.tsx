@@ -1,14 +1,16 @@
 "use client";
 import axios from "axios";
-import { useRef, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import "react-toastify/dist/ReactToastify.css";
+import { Class } from "@/type/type";
+import ToastNotification from "@/components/toast/toastify";
 
 export default function CreateStudentPage() {
     const router = useRouter();
     const studentNameRef = useRef<HTMLInputElement>(null);
     const [classId, setClassId] = useState<number>(1);
+    const [courseName, setCourses] = useState<Class[]>([]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault(); // Ngăn không cho trang reload
@@ -36,20 +38,26 @@ export default function CreateStudentPage() {
             console.error("Failed to add student:", error.response.data.devMessage);
         }
     };
-    const courseName = [
-        {
-            id: 1,
-            name: "Computer Science 101",
-        },
-        {
-            id: 2,
-            name: "Computer Science 102",
-        },
-        {
-            id: 3,
-            name: "Computer Science 103",
-        },
-    ];
+
+    const fetchClass = async () => {
+        try {
+            const response = await axios({
+                method: "get",
+                url: `${process.env.NEXT_PUBLIC_API_URL}/class/api/get_courses`,
+                headers: {
+                    Authorization: `Bearer ${process.env.NEXT_PUBLIC_PERM}`,
+                },
+            });
+            console.log(response.data);
+            setCourses(response.data);
+        } catch (error: any) {
+            toast.error(error.response.data.devMessage);
+        }
+    };
+    console.log(courseName);
+    useEffect(() => {
+        fetchClass();
+    }, []);
 
     return (
         <>
@@ -96,17 +104,7 @@ export default function CreateStudentPage() {
                     </form>
                 </div>
             </div>
-            <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+            <ToastNotification />
         </>
     );
 }

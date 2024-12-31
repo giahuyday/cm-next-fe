@@ -2,19 +2,14 @@ import axios from "axios";
 import Table from "@/components/table/StudentTable";
 import React from "react";
 import SearchBar from "@/components/search/StudentSearchBar";
-
-type Student = {
-    id: number;
-    name: string;
-    classId: number;
-};
+import { Student } from "@/type/type";
 
 export default async function student() {
     const response = await axios({
         method: "get",
         url: `${process.env.NEXT_PUBLIC_API_URL}/student/api/get_students`,
         headers: {
-            Authorization: "Baerer admin",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_PERM}`,
         },
     });
 

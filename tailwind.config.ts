@@ -13,7 +13,7 @@ export default {
                 foreground: "var(--foreground)",
             },
             backgroundImage: {
-                "background-lg": "url('/background.jpg')",
+                "background-lg": "url('/background/background1.avif')",
             },
             variants: {
                 display: ["group-hover"],

@@ -1,7 +1,10 @@
 export type Student = {
     id: number;
     name: string;
-    classId: number;
+    classId: {
+        id: number;
+        name: string;
+    };
 };
 
 export type Class = {

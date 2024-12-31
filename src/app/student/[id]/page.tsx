@@ -4,7 +4,10 @@ import axios from "axios";
 interface Student {
     id: number;
     name: string;
-    classId: number;
+    classId: {
+        id: number;
+        name: string;
+    };
 }
 
 export const revalidate = 10;
@@ -97,7 +100,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                                 type="text"
                                 id="class"
                                 placeholder="Fill student name"
-                                value={student?.classId}
+                                value={student?.classId?.id}
                             />
                         </div>
 
@@ -109,7 +112,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                                 type="text"
                                 id="classname"
                                 placeholder="Fill student name"
-                                value="hello"
+                                value={student?.classId?.name}
                             />
                         </div>
                     </form>
